@@ -23,7 +23,7 @@ export default function App() {
 
   const label = todos.map((todo) =>todo.label );
   const value = todos.map((todo) =>todo.value );
-  alert(label)
+  //alert(label)
 
 
   useEffect(() => {
