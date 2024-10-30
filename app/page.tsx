@@ -29,7 +29,7 @@ export default function App() {
 
   const data = todos.map((todo) =>todo );
   
-  alert(value)
+  //alert(value)
 
   useEffect(() => {
     listTodos();
