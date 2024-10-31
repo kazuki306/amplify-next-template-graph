@@ -8,10 +8,7 @@ import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
 
-import { PieChart } from '@mui/x-charts';
-
-
-//import { LineChart } from '@mui/x-charts/LineChart';
+import { LineChart } from '@mui/x-charts';
 
 Amplify.configure(outputs);
 
@@ -20,7 +17,7 @@ const client = generateClient<Schema>();
 export default function App() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
 
-  //alert(JSON.stringify(todos))
+  alert(JSON.stringify(todos))
 
   function listTodos() {
     client.models.Todo.observeQuery().subscribe({
@@ -64,18 +61,15 @@ export default function App() {
         </div>
       </main>
 
-      <PieChart
+      <LineChart
+        xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
         series={[
           {
-            data: [
-              { id: 0, value: 10, label: 'series A' },
-              { id: 1, value: 15, label: 'series B' },
-              { id: 2, value: 20, label: 'series C' },
-            ],
+            data: [2, 5.5, 2, 8.5, 1.5, 5],
           },
         ]}
-        width={400}
-        height={200}
+        width={500}
+        height={300}
 />
 
     </> 
