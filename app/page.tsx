@@ -8,11 +8,6 @@ import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
 
-<<<<<<< HEAD
-//import { LineChart } from '@mui/x-charts/LineChart';
-=======
->>>>>>> origin/main
-
 Amplify.configure(outputs);
 
 const client = generateClient<Schema>();
@@ -44,7 +39,6 @@ export default function App() {
   }
 
   return (
-<<<<<<< HEAD
     <> 
       <main>
         <h1>My todos</h1>
@@ -63,26 +57,6 @@ export default function App() {
         </div>
       </main>
     </>
-=======
- 
-    <main>
-      <h1>My todos</h1>
-      <button onClick={createTodo}>+ new</button>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>{todo.content}&nbsp;{todo.label}&nbsp;{todo.value}</li>
-        ))}
-      </ul>
-      <div>
-        🥳 App successfully hosted. Try creating a new todo.
-        <br />
-        <a href="https://docs.amplify.aws/nextjs/start/quickstart/nextjs-app-router-client-components/">
-          Review next steps of this tutorial.
-        </a>
-      </div>
-    </main>
-
->>>>>>> origin/main
   );
 
 }
