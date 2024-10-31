@@ -8,7 +8,8 @@ import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
 
-//import { LineChart } from '@mui/x-charts';
+
+//import { LineChart } from '@mui/x-charts/LineChart';
 
 Amplify.configure(outputs);
 
@@ -16,8 +17,6 @@ const client = generateClient<Schema>();
 
 export default function App() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
-
-  alert(JSON.stringify(todos))
 
   function listTodos() {
     client.models.Todo.observeQuery().subscribe({
@@ -43,7 +42,7 @@ export default function App() {
   }
 
   return (
-
+ 
     <main>
       <h1>My todos</h1>
       <button onClick={createTodo}>+ new</button>
