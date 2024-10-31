@@ -70,7 +70,7 @@ export default function App() {
         ]}
         width={500}
         height={300}
-/>
+      />
 
     </> 
   );
