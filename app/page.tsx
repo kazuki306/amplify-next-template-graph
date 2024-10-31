@@ -30,14 +30,14 @@ export default function App() {
 
   function createTodo() {
     //追加。
-    const content = window.prompt("内容を入力してください。");
-    const label = window.prompt("ラベルを入力してください。");
-    //const value = window.prompt("値を入力してください。");
+    const todocontent = window.prompt("内容を入力してください。");
+    const todolabel = window.prompt("ラベルを入力してください。");
+    //const todovalue = window.prompt("値を入力してください。");
     client.models.Todo.create({
       //content: window.prompt("入力してください。"),
-      content: content,
-      label: label,
-      //value: value,
+      content: todocontent,
+      label: todolabel,
+      //value: todovalue,
     });
   }
 
