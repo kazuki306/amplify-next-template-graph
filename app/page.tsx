@@ -9,8 +9,6 @@ import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
 
 
-//import { LineChart } from '@mui/x-charts/LineChart';
-
 Amplify.configure(outputs);
 
 const client = generateClient<Schema>();
