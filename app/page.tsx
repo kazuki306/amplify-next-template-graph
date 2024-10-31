@@ -8,6 +8,8 @@ import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
 
+import { useFormik } from 'formik';
+
 //import { LineChart } from '@mui/x-charts/LineChart';
 
 Amplify.configure(outputs);
@@ -28,16 +30,8 @@ export default function App() {
   }, []);
 
   function createTodo() {
-    //下記を追加
-    //const todocontent = window.prompt("Todo content");
-    //const todolabel = window.prompt("label");
-    //const todovalue = window.prompt("value");
-  　//以下は修正。
     client.models.Todo.create({
-      content: window.prompt("Todo content"),
-      //content: todocontent,
-      //label: todolabel,
-      //value: todovalue,
+      content: window.prompt("入力してください。")
     });
   }
 
