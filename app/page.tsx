@@ -8,7 +8,6 @@ import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
 
-import { useFormik } from 'formik';
 
 //import { LineChart } from '@mui/x-charts/LineChart';
 
@@ -31,7 +30,7 @@ export default function App() {
 
   function createTodo() {
     client.models.Todo.create({
-      content: window.prompt("入力してください。")
+      content: window.prompt("入力してください。"),
     });
   }
 
