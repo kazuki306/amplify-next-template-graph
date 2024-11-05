@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import "./app.css";
+//import "./app.css";
 
 export default function Home() {
   return (
