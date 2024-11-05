@@ -2,41 +2,50 @@
 
 import Link from 'next/link';
 
-import {
-  Chart as ChartJS,
-  RadialLinearScale,
+import React from 'react';
+import { Line } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
   PointElement,
   LineElement,
-  Filler,
+  Title,
   Tooltip,
-  Legend,
-} from 'chart.js';
-import * as React from 'react';
-import { Radar } from 'react-chartjs-2';
+  Legend
+);
 
-function ChartJsRader() {
-  ChartJS.register(
-    RadialLinearScale,
-    PointElement,
-    LineElement,
-    Filler,
-    Tooltip,
-    Legend,
-  );
+const data = {
+  labels: [1, 2, 3, 5, 8, 10],
+  datasets: [
+    {
+      label: 'Sample Data',
+      data: [2, 5.5, 2, 8.5, 1.5, 5],
+      fill: true, // areaを有効にする
+      backgroundColor: 'rgba(75,192,192,0.2)',
+      borderColor: 'rgba(75,192,192,1)',
+      tension: 0.4,
+    },
+  ],
+};
 
-  const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-    datasets: [
-      {
-        label: '# of Votes',
-        data: [80, 50, 30, 40, 100, 20],
-        backgroundColor: 'rgba(96, 109, 194, 0.2)',
-        borderColor: 'rgba(96, 109, 194, 1)',
-        borderWidth: 1,
-      },
-    ],
-  };
-  return <Radar data={data} />;
-}
+const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      display: true,
+    },
+    title: {
+      display: true,
+      text: 'Line Chart Example',
+    },
+  },
+};
 
-export default ChartJsRader;
+const LineChartExample = () => {
+  return <Line data={data} options={options} width={500} height={300} />;
+};
+
+export default LineChartExample;
+
