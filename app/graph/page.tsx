@@ -22,15 +22,37 @@ ChartJS.register(
   Legend
 );
 
+Amplify.configure(outputs);
+
+const client = generateClient<Schema>();
+
 
 export default function App() {
 
+  const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
+
+  function listTodos() {
+    client.models.Todo.observeQuery().subscribe({
+      next: (data) => setTodos([...data.items]),
+    });
+  }
+
+  useEffect(() => {
+    listTodos();
+  }, []);
+
+  //alert(JSON.stringify(todos))
+  const label = todos.map(todos => todos.label);
+  const value = todos.map(todos => todos.value);
+
   const data = {
-    labels: [1, 2, 3, 5, 8, 10],
+    //labels: [1, 2, 3, 5, 8, 10],
+    labels: label,
     datasets: [
       {
         label: 'Sample Data',
-        data: [2, 5.5, 2, 8.5, 1.5, 5],
+        //data: [2, 5.5, 2, 8.5, 1.5, 5],
+        data: value,
         fill: true, // areaを有効にする
         backgroundColor: 'rgba(75,192,192,0.2)',
         borderColor: 'rgba(75,192,192,1)',
@@ -54,7 +76,7 @@ export default function App() {
 
   return(
     <>
-      <Line data={data} options={options} width={500} height={300} />;
+      <Line data={data} options={options} width={300} height={200} />;
     </>
   );
 
