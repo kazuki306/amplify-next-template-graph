@@ -10,7 +10,7 @@ import "@aws-amplify/ui-react/styles.css";
 
 
 //import { LineChart } from '@mui/x-charts/LineChart';
-//https://mui.com/x/react-charts/lines/
+
 
 Amplify.configure(outputs);
 
